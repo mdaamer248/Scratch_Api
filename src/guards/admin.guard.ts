@@ -34,6 +34,7 @@ export class AdminGuard implements CanActivate {
     const token = auth.split(' ')[1];
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
       return decoded;
     } catch (err) {
       if (err.name == ' TokenExpiredError') {
